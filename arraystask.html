@@ -33,6 +33,32 @@
         let languages = ['english','swahili','french','chinese','spanish']
         let mod_array = languages.pop()
         console.log(mod_array)
+        console.log("")
+
+        // Assignment 1: Combine Arrays
+        // Given two arrays arr1 and arr2, combine them into a single array combinedArray 
+        // using the .concat() method. Then, remove the first element from combinedArray using the 
+        // .shift() method. Finally, print the modified combinedArray.
+
+        let arr1 = [1,2,3]
+        let arr2 = [4,5,6]
+        let combined = arr1.concat(arr2)
+        console.log(combined)
+        console.log(combined.shift())
+
+        // Assignment 2: Extract Subarray
+        // Given an array sourceArray, 
+        // extract a subarray extractedArray from index 2 to index 4 
+        // (end index not inclusive) using the .slice() method. 
+        // Then, modify the extractedArray by replacing its elements with 'x', 'y', and 'z' 
+        // using the .splice() method. 
+        // Finally, print both the sourceArray and the modified extractedArray.
+        let sourceArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let extractedArray = sourceArray.slice(2, 4);
+        extractedArray.splice(0, 3, 'x', 'y', 'z');
+
+        console.log('sourceArray:', sourceArray);
+        console.log('modified extractedArray:', extractedArray);
 
 
     </script>
