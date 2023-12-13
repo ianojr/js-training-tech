@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objects</title>
+</head>
+<body>
+    
+    <script>
+        let person = {
+            name: "ian",
+            city: 'thome',
+            country: 'kenya'
+        }
+        console.log(person.city)
+        console.log(person['name'])
+
+        //adding values in an object.
+        person.occupation = 'programmers'
+        console.log(person)
+
+        //Nested Objects
+        person.address = {
+            town: 'kasarani',
+            county: 'nairobi'
+        }
+        console.log(person)
+        console.log(person.address.county)
+
+        //object methodas
+        console.log(person)
+    </script>
+</body>
+</html>
