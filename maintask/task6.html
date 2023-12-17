@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // Write a program input a password. 
+        // Give them only 4 attempts to check the passwords entered against “admin@123”. 
+        // If the password is correct access is granted. 
+        // After you show them a message , the account is blocked.
+        const saved_password = 'admin@123'
+        let trials = 0
+        let users_password = prompt("Enter the password: ")
+        if (users_password == saved_password){
+            alert('Access Granted!')
+        }
+        else{
+            for (trials=0; trials<3; trials++){
+                let trial_password = prompt("Try again: ")
+                if (trial_password == saved_password){
+                    alert('Access Granted.')
+                {break}
+                }
+            }   
+        alert('The Account is blocked!!!')
+        }
+    </script>
+</body>
+</html>

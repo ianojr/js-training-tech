@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // Prompt the user for a number either on a form input or the terminal. 
+        // Depending on whether the number is even or odd, display  either “odd” or “even” to the user.
+        // Hint: how does an even / odd number react differently when divided by 2?
+        //If the number is a multiple of 4, print out “divisible by 4”.
+        let number = prompt('Enter the number: ')
+        if (number%2 == 0){
+            alert('The Number is Even.')
+            if (number%4 == 0){
+                alert('The number is divisible by 4.')
+            }
+        }else{
+            alert('The number is Odd.')
+        }
+    </script>
+</body>
+</html>
