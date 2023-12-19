@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         // Write a program which gets a phone number from a form input or terminal. 
@@ -14,9 +16,28 @@
         // e.g if a user enters “0112345678”, the program should display “+254112345678”
         // e.g if a user enters “712345678”, the program should display “+254712345678”
         let number = (prompt("Enter the number: "))
-        if (number.startsWith(+254) ){
-            alert("Nice number")
-        
+        if (number.startsWith('+254') && number.length == 13) {
+            let valid = number + ' is Valid'
+        }
+        else if ((number.startsWith('07') && number.length == 10) ||
+            (number.startsWith('01') && number.length == 10)) {
+            new_number = '+254' + number.slice(1)
+            valid = new_number + ' is Valid.'
+        }
+        else if ((number.startsWith('7') && number.length == 9) ||
+            (number.startsWith('1') && number.length == 9)) {
+            new_number = '+254' + number
+            valid = new_number + ' is Valid.'
+        }
+        else if (number.startsWith('254') && number.length == 12) {
+            new_number = '+' + number
+            valid = new_number + ' is valid.'
+        }
+        else{
+            valid = "Invalid Number."
+        }
+        alert(valid)
     </script>
 </body>
+
 </html>

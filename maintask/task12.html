@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Write a program that prints the largest of 4 inputs taken in from a user. 
+        // Assume that the user would not enter any two numbers which are the same.
+        input1 = prompt('Enter the first number: ')
+        input2 = prompt('Enter the second number: ')
+        input3 = prompt('Enter the third number: ')
+        input4 = prompt('Enter the fourth number: ')
+
+        if (input1 > input2 && input1 > input3 && input1 > input4) {
+            largest = 'The first number is the largest.'
+        }
+        else if (input2 > input1 && input2 > input3 && input2 > input4) {
+            largest = 'The second number is the largest.'
+        }
+        else if (input3 > input1 && input3 > input2 && input3 > input4) {
+            largest = 'The third number is the largest.'
+        }
+        else {
+            largest = 'The fourth number is the largest.'
+        }
+        alert(largest)
+    </script>
+</body>
+
+</html>

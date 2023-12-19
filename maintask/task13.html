@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Write a program that takes the email and password as input from a user 
+        // and checks if they are equal to “admin@mail.com” and password is “Admin@123” , 
+        // if so then print  “Login is Successful” and if not print “Invalid username or password”. 
+        // ONLY accept 3 tries after which it notifies you that you have been blocked.
+        const saved_email = 'admin@mail.com'
+        const saved_password = 'Admin@123'
+        let users_email = prompt('Enter the email: ')
+        let users_password = prompt('Enter the password: ')
+        if (users_email == saved_email && users_password == saved_password) {
+            inform = 'Login is Successful'
+        }
+        else {
+            for (i = 0; i < 3; i++) {
+                inform = 'Invalid username or password.'
+                users_email = prompt("Try Email Again: ")
+                users_password = prompt('Try Password Again: ')
+            }
+            inform = 'Account blocked.'
+        }
+        alert(inform)
+    </script>
+</body>
+
+</html>
