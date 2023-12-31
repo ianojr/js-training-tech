@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <form action="" id="my_form">
+        <input id="number1" type="number">
+        <label for="number1">First number</label>
+        <input type="number" id="number2">
+        <label for="number2">Second Number</label>
+        <br>
+        <input type="submit" value="Validate">
+    </form>
+    <h1 id="answer"></h1>
     <script>
         // Write a program that takes input of 2 values and adds them. 
         // The program should only accept numbers and floats only or otherwise 
         // display an error “invalid character entered” and take the user to re-enter the inputs.
-        let num1 = parseFloat(prompt('Enter the first number: '))
-        let num2 = parseFloat(prompt('Enter the second number: '))
-        if (num1 == true && num2 == true){
-            alert('Valid number')
-        }
+        let form = document.getElementById('my_form');
+        document.addEventListener('submit', function (e) {
+            e.preventDefault();
+            let num1 = document.getElementById("number1").value
+            parseFloat(num1)
+            let num2 = document.getElementById("number2").value
+            parseFloat(num2)
+
+            if (num1 == true && num2 == true) {
+                ans = ('Valid number')
+            }
+            document.getElementById('answer').innerHTML = ans
+        })
     </script>
 </body>
+
 </html>

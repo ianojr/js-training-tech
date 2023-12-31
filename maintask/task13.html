@@ -8,28 +8,46 @@
 </head>
 
 <body>
+    <form action="" id="my_form">
+        <input id="user_email" type="email">
+        <label for="user_email">Email</label>
+        <br>
+        <input id="user_password" type="password">
+        <label for="user_password">Password</label>
+        <input type="submit" value="Validate">
+    </form>
+    <h1 id="answer"></h1>
 
     <script>
         // Write a program that takes the email and password as input from a user 
         // and checks if they are equal to “admin@mail.com” and password is “Admin@123” , 
         // if so then print  “Login is Successful” and if not print “Invalid username or password”. 
         // ONLY accept 3 tries after which it notifies you that you have been blocked.
-        const saved_email = 'admin@mail.com'
-        const saved_password = 'Admin@123'
-        let users_email = prompt('Enter the email: ')
-        let users_password = prompt('Enter the password: ')
-        if (users_email == saved_email && users_password == saved_password) {
-            inform = 'Login is Successful'
-        }
-        else {
-            for (i = 0; i < 3; i++) {
-                inform = 'Invalid username or password.'
-                users_email = prompt("Try Email Again: ")
-                users_password = prompt('Try Password Again: ')
+
+        let form = document.getElementById('my_form');
+        document.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const saved_email = 'admin@gmail.com'
+            const saved_password = 'Admin@123'
+
+            let users_email = document.getElementById('user_email').value
+            let users_password = document.getElementById('user_password').value
+
+            if (users_email == saved_email && users_password == saved_password) {
+                inform = 'Login is Successful'
             }
-            inform = 'Account blocked.'
-        }
-        alert(inform)
+            else {
+                for (i = 0; i < 3; i++) {
+                    inform = 'Invalid username or password.'
+                    users_email = document.getElementById('user_email').value
+                    users_password = document.getElementById('user_password').value
+                }
+                inform = 'Account blocked.'
+            }
+        document.getElementById('answer').innerHTML = inform
+        form.reset()
+        })
     </script>
 </body>
 

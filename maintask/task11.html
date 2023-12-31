@@ -8,11 +8,17 @@
 </head>
 
 <body>
+    <form action="" id="my_form">
+        <label for="birth_day">Birth day</label>
+        <input type="date">
+        <input type="submit" value="Calculate">
+    </form>
+    <h1 id="answer"></h1>
     <script>
         // Write a program that takes the date of birth of a person 
         // and the program outputs the age in terms of years,months,days TODAY.
 
-        
+
         // let month = prompt("Enter the month: ")
         // let year_born = prompt('Enter the year: ')
         // let current_year = 2023
@@ -20,14 +26,23 @@
         // years = (current_year - year_born)
         // alert('Your age is: '+years+'Years '+month+'Months '+day+'Days')
 
-        let b_day = prompt('Enter the year, month, day: ')
-        let today = new Date()
-        let birth_date = new Date(b_day)
-        let years = today.getFullYear() - birth_date.getFullYear()
-        let month = today.getMonth() - birth_date.getMonth()
-        let day = today.getDay() - birth_date.getDay()
-        console.log(birth_date)
-        console.log(`${years}/${month}/${day}`)
+        form = document.getElementById('my_form');
+        document.addEventListener('submit', function (e) {
+            e.preventDefault()
+
+            let b_day = document.getElementById('birth_day').value
+
+            let today = new Date()
+            let birth_date = new Date(b_day)
+            
+            let years = today.getFullYear() - birth_date.getFullYear()
+            let month = today.getMonth() - birth_date.getMonth()
+            let day = today.getDay() - birth_date.getDay()
+            let ans = (`${years}/${month}/${day}`)
+
+            document.getElementById('answer').innerHTML = ans
+        })
+
     </script>
 </body>
 
