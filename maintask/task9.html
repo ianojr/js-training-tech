@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <form action="" id="my_form">
+        <label for="number">Enter the number</label>
+        <input type="number" id="number_input">
+
+        <input type="submit" value="Enter">
+    </form>
+    <h1 id="answer"></h1>
     <script>
         //Write a program called stars. It should prompt the user for a number, 
         //and it should print the number of stars till the number entered.
@@ -15,12 +24,22 @@
         // ***
         // ****
         // *****.....
-        let number = prompt('Enter the number: ')
-        let stars = ''
-        for (i=0; i<number; i++){
-            stars += "*"
-            console.log(stars)
-        }
+        let form = document.getElementById("my_form");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault()
+
+
+            let number = document.getElementById("number_input").value
+            let stars = ''
+
+            for (i = 0; i < number; i++) {
+                stars += "*"
+            }
+            let ans = stars
+            document.getElementById("answer").innerHTML = ans
+            form.reset()
+        })
     </script>
 </body>
+
 </html>

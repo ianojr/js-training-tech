@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <form id="inputs" action="">
+        <label for="email">Enter Email:</label>
+        <input type="email" id="email">
+
+        <input type="submit" value="Enter">
+    </form>
+    <h1 id="answer"></h1>
+
     <script>
         // Write a program which accepts email as form input or from terminal. 
         // Validate the email by checking if it's a valid email. 
         // Hint: Check if it contains an “@” symbol and “.” symbol.
-        let email = prompt('Enter the Email: ')
-        if (email.includes('@') && email.includes(".")){
-            alert("The Email is Valid: ")
-        }else{
-            alert("Ensure you type a valid Email!!!")
-        }
+
+        let users_email = document.getElementById("inputs");
+        users_email.addEventListener("submit", function (e) {
+            e.preventDefault()
+
+
+            let email = document.getElementById("email").value;
+            let answer = ""
+
+            if (email.includes('@') && email.includes(".")) {
+                answer = ("The Email is Valid: ")
+            } else {
+                answer = ("Ensure you type a valid Email!!!")
+            }
+            document.getElementById("answer").innerHTML = answer
+        })
     </script>
 </body>
+
 </html>

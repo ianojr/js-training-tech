@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <form action="" id="my_form">
+        <label for="car_speed">Enter the speed:</label>
+        <input type="number" id="car_speed">
+
+        <input type="submit">
+    </form>
+    <h1 id="ans"></h1>
+
     <script>
         // Write a program that takes as input the speed of a car e.g 80. 
         // If the speed is less than 70, it should print “Ok”. 
@@ -13,7 +23,33 @@
         // it should give the driver one demerit point and print the total number of demerit points.
         // For example, if the speed is 80, it should print: “Points: 2”. 
         // If the driver gets more than 12 points, the function should print: “License suspended”.
-        
+
+        let form = document.getElementById("my_form");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault()
+
+
+            let speed = document.getElementById("car_speed").value
+            let speed_limit = 70
+            let d_point = 0
+
+            if (speed <= speed_limit) {
+                answer = 'Ok'
+            }
+            else if (speed > speed_limit && speed <= 75) {
+                d_point = 1
+            }
+            else {
+                d_point += (speed - 75) / 5
+            }
+            if (d_point > 12) {
+                answer = 'Lisence Suspended!'
+            }
+            document.getElementById("ans").innerHTML = answer
+            form.reset()
+        })
+
+
         // let speed = prompt('Enter the speed of the car: ')
         // let speed_dm_points = 5
         // if (speed < 70){
@@ -28,21 +64,7 @@
         //         alert('Demerit points: '+ assigned_dm_point
         //     }
         // }
-        
-        let speed = prompt('Enter the speed: ')
-        let speed_limit = 70
-        if (speed <= speed_limit){
-            alert('Ok')
-        }
-        else if(speed > speed_limit && speed <= 75){
-            let d_point = 1
-        }
-        else{
-            d_point += (speed-75)/5
-        }
-        if (d_point>12){
-            alert('Lisence Suspended!')
-        }
     </script>
 </body>
+
 </html>

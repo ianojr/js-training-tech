@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <form action="" id="inputs">
+        <label for="base">Enter the Base:</label>
+        <input id="base" type="number">
+        <br>
+        <label for="height">Enter the height:</label>
+        <input id="height" type="number">
+
+        <input type="submit" value="Calculate">
+
+    </form>
+    <h1 id="area"></h1>
+
+
     <script>
         //Write a program that prompts the user to enter the base and height of a triangle and returns its area.
-        const base = prompt('Enter the Base: ')
-        const height = prompt('Enter the Height: ')
-        
-        const area = (0.5 * base * height)
-        alert(area)
+        let form = document.getElementById("inputs")
+        form.addEventListener("submit", function (e) {
+            e.preventDefault()
+
+            //Take the inputs
+            let base = document.getElementById('base').value;
+            let height = document.getElementById('height').value;
+
+            let area = (base * height)*0.5
+            document.getElementById("area").innerHTML = `The Area is: ${area}`
+        })
+
     </script>
 </body>
+
 </html>

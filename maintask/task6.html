@@ -8,47 +8,67 @@
 </head>
 
 <body>
+    <form action="" id="my_form">
+        <label for="input">Enter the Password</label>
+        <input type="text" id="input">
+
+        <label for="input2">Renter the Password</label>
+        <input type="text" id="input2">
+
+        <input type="submit">
+    </form>
+    <h1 id="answer"></h1>
 
     <script>
         // Write a program input a password. 
         // Give them only 4 attempts to check the passwords entered against “admin@123”. 
         // If the password is correct access is granted. 
         // After you show them a message , the account is blocked.
+        let form = document.getElementById("my_form");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault()
 
-        // const saved_password = 'admin@123'
-        // let trials = 0
-        // let users_password = prompt("Enter the password: ")
-        // if (users_password == saved_password) {
-        //     alert('Access Granted!')
-        // }
-        // else {
-        //     for (trials = 0; trials < 3; trials++) {
-        //         let trial_password = prompt("Try again: ")
-        //         if (trial_password == saved_password) {
-        //             alert('Access Granted.')
-        //             { break }
-        //         }
-        //     }
-        //     if (trials == 3) {
-        //         alert('The Account is blocked!!!')
-        //     }
-        // }
+            const saved_password = 'admin@123'
+            let trials = 0
+            let output = ""
 
-        const password = "admin@123";
-        let attempts = 0
-        for (attempts = 1; attempts <= 4; attempts++) {
-            let inputPassword = prompt("Enter password: ");
-            if (inputPassword === password) {
-                console.log("Access granted");
-                break;
+            let users_password = document.getElementById("input1").value
+
+            if (users_password == saved_password) {
+                output = ('Access Granted!')
             }
             else {
-                console.log("Incorrect password. Attempt", attempts, "of 4");
+                for (trials = 0; trials < 3; trials++) {
+                    let trial_password = document.getElementById("input2").value
+
+                    if (trial_password == saved_password) {
+                        output = ('Access Granted.')
+                        { break }
+                    }
+                }
+                if (trials == 3) {
+                    output = ('The Account is blocked!!!')
+                }
             }
-        }
-        if (attempts > 4) {
-            console.log("Account blocked!");
-        }
+            document.getElementById("answer").innerHTML = output
+        })
+
+
+        // const password = "admin@123";
+        // let attempts = 0
+        // for (attempts = 1; attempts <= 4; attempts++) {
+        //     let inputPassword = prompt("Enter password: ");
+        //     if (inputPassword === password) {
+        //         console.log("Access granted");
+        //         break;
+        //     }
+        //     else {
+        //         console.log("Incorrect password. Attempt", attempts, "of 4");
+        //     }
+        // }
+        // if (attempts > 4) {
+        //     console.log("Account blocked!");
+        // }
     </script>
 </body>
 

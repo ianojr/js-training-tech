@@ -8,6 +8,12 @@
 </head>
 
 <body>
+    <form action="" class="phone_number">
+        <label for="number_input">Enter the phone number: </label>
+        <input id="number_input" type="number">
+        <input type="submit" value="Enter">
+    </form>
+    <h1 id="answer"></h1>
     <script>
         // Write a program which gets a phone number from a form input or terminal. 
         // Validates the phone number by checking if it starts with +254.. or 07.. or 71… or 254.. or 01... 
@@ -15,28 +21,38 @@
         // e.g if a user enters “0712345678”, the program should display “+254712345678”
         // e.g if a user enters “0112345678”, the program should display “+254112345678”
         // e.g if a user enters “712345678”, the program should display “+254712345678”
-        let number = (prompt("Enter the number: "))
-        if (number.startsWith('+254') && number.length == 13) {
-            let valid = number + ' is Valid'
-        }
-        else if ((number.startsWith('07') && number.length == 10) ||
-            (number.startsWith('01') && number.length == 10)) {
-            new_number = '+254' + number.slice(1)
-            valid = new_number + ' is Valid.'
-        }
-        else if ((number.startsWith('7') && number.length == 9) ||
-            (number.startsWith('1') && number.length == 9)) {
-            new_number = '+254' + number
-            valid = new_number + ' is Valid.'
-        }
-        else if (number.startsWith('254') && number.length == 12) {
-            new_number = '+' + number
-            valid = new_number + ' is valid.'
-        }
-        else{
-            valid = "Invalid Number."
-        }
-        alert(valid)
+
+        let form = document.getElementById("phone_number");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault()
+
+
+            let number = document.getElementById("number_input").value;
+
+            let new_number = ""
+
+            if (number.startsWith('+254') && number.length == 13) {
+                valid = number + ' is Valid'
+            }
+            else if ((number.startsWith('07') && number.length == 10) ||
+                (number.startsWith('01') && number.length == 10)) {
+                new_number = '+254' + number.slice(1)
+                valid = new_number + ' is Valid.'
+            }
+            else if ((number.startsWith('7') && number.length == 9) ||
+                (number.startsWith('1') && number.length == 9)) {
+                new_number = '+254' + number
+                valid = new_number + ' is Valid.'
+            }
+            else if (number.startsWith('254') && number.length == 12) {
+                new_number = '+' + number
+                valid = new_number + ' is valid.'
+            }
+            else {
+                valid = "Invalid Number."
+            }
+            document.getElementById("answer").innerHTML = valid
+        })
     </script>
 </body>
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="my_form">
+        <label for="name">Enter Your name:</label>
+        <input id="name" type="text">
+
+        <input type="submit">
+    </form>
+    <h1 id="answer"></h1>
+
+    <script>
+
+        let form = document.getElementById("my_form");
+        form.addEventListener("submit", function(e){
+            e.preventDefault()
+
+        let inputs = document.getElementById("name").value;
+
+        document.getElementById("answer").innerHTML = inputs
+        })
+    </script>
+</body>
+
+</html>

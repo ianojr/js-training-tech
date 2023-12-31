@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <form action="" id="my_form">
+        <label for="students_marks"></label>
+        <input type="number" id="students_marks">
+
+        <input type="submit">
+    </form>
+    <h1 id="ans"></h1>
+
     <script>
         // Write that prompts the user to input student marks. 
         // The input should be between 0 and 100.Then output the correct grade: 
         // A > 79 , B - 60 to 79, C -  59 to 49, D - 40 to 49, E - less 40
-        let marks = prompt('Enter the marks: ')
-        if (marks > 0 && marks < 100){
-            if (marks > 79){
-                let grade = 'A'
+        let form = document.getElementById("my_form");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault()
+
+
+            let marks = document.getElementById("students_marks").value
+            let answer = ""
+            let grade = ""
+
+            if (marks > 0 && marks < 100) {
+                if (marks > 79) {
+                    grade = 'A'
+                }
+                else if (marks > 60 && marks <= 79) {
+                    grade = 'B'
+                }
+                else if (marks > 49 && marks <= 59) {
+                    grade = 'C'
+                }
+                else if (marks > 40 && marks <= 49) {
+                    grade = 'D'
+                }
+                else {
+                    grade = 'E'
+                }
+                answer = ('The grade is: ' + grade)
+            } else {
+                answer = ('Ensure you enter valid Marks!!!')
             }
-            else if (marks > 60 && marks <=79){
-                grade = 'B'
-            }
-            else if (marks > 49 && marks <=59){
-                grade = 'C'
-            }
-            else if (marks > 40 && marks <=49){
-                grade = 'D'
-            }
-            else{
-                grade = 'E'
-            }
-        alert('The grade is: '+ grade)
-        }else{
-            alert('Ensure you enter valid Marks!!!')
-        }
+
+            document.getElementById("ans").innerHTML = answer
+            form.reset()
+        })
     </script>
 </body>
+
 </html>

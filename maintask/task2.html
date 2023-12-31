@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <form action="" id="inputs">
+        <label for="number">Enter the number:</label>
+        <input id="number" type="number">
+
+        <input type="submit" value="Enter">
+    </form>
+    <h1 id="answer"></h1>
+
     <script>
         // Prompt the user for a number either on a form input or the terminal. 
         // Depending on whether the number is even or odd, display  either “odd” or “even” to the user.
         // Hint: how does an even / odd number react differently when divided by 2?
         //If the number is a multiple of 4, print out “divisible by 4”.
-        let number = prompt('Enter the number: ')
-        if (number%2 == 0){
-            alert('The Number is Even.')
-            if (number%4 == 0){
-                alert('The number is divisible by 4.')
+
+        let number = document.getElementById('inputs');
+        number.addEventListener("submit", function (e) {
+            e.preventDefault()
+
+            let number = document.getElementById("number").value;
+            let answer = ''
+            if (number % 2 == 0) {
+                answer = 'The Number is Even.'
+                if (number % 4 == 0) {
+                    answer = 'The number is divisible by 4.'
+                }
+            } else {
+                answer = 'The number is Odd.'
             }
-        }else{
-            alert('The number is Odd.')
-        }
+
+            document.getElementById("answer").innerHTML = answer
+        })
     </script>
 </body>
+
 </html>
